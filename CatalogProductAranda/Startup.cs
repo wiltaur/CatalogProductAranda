@@ -1,7 +1,11 @@
+using Aranda.CatalogProductCore.Business.Implement;
+using Aranda.CatalogProductCore.Business.Interface;
+using Aranda.CatalogProductCore.Repository.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +32,10 @@ namespace CatalogProductAranda
         {
 
             services.AddControllers();
+            services.AddDbContext<CatalogProductDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CatalogProductDatabase")));
+
+            services.AddTransient<ICatalogProductService, CatalogProductService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatalogProductAranda", Version = "v1" });
