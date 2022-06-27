@@ -1,5 +1,4 @@
-﻿using Aranda.CatalogProductCore.Business.Helper;
-using Aranda.CatalogProductCore.Business.Interface;
+﻿using Aranda.CatalogProductCore.Business.Interface;
 using Aranda.CatalogProductCore.Repository.Context;
 using Aranda.CatalogProductCore.Repository.Dto;
 using Aranda.CatalogProductCore.Repository.Model;
